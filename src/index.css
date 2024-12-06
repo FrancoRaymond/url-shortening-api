@@ -16,3 +16,11 @@ nav.active{
 button {
     @apply bg-cyan-400 text-white py-2 px-6 rounded-3xl font-semibold w-[calc(100%-40px)] mx-auto
 }
+.form{
+    background: url('assets/icons/bg-shorten-mobile.svg') no-repeat center center / cover;
+    background-position: -100%;
+    
+}
+/*.boostLinks{
+    background: url('assets/icons/bg-boost-mobile.svg') no-repeat center center / cover;
+}*/
