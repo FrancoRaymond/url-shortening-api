@@ -7,8 +7,8 @@ const Form = () => {
   const [links, setLinks] = useState([])
 
   const shortenIt = (e) => {
-    if(initialLink.trim() === ''){
-      e.preventDefault()
+    e.preventDefault()
+    if(initialLink.trim() === ''){   
       setInputError(true)
       return
     }else{
@@ -24,18 +24,20 @@ const Form = () => {
   }
 
   return (
-    <div className='mb-18 relative -translate-y-16 z-10'>
-      <form onSubmit={shortenIt} action="" className='form flex flex-col gap-3 rounded-md p-4'>
-        <input 
-          value={initialLink}
-          onChange={(e) => setInititalLink(e.target.value)}
-          type="text" 
-          name='link' 
-          placeholder='Shorten a link here' 
-          className={`rounded-md py-2 px-3 bg-white w-full outline-none ${inputError ? 'border-2 border-red-600 placeholder:text-red-300' : ''}`}
-        />
-        {inputError && <span className='text-red-600 text-sm italic -mt-3'>Please add a link</span>}
-        <button type='submit' className='rounded-md w-full'>Shorten it!</button>
+    <div className='mb-18 relative -translate-y-16 sm:-translate-y-10 z-10'>
+      <form onSubmit={shortenIt} action="" className='form flex flex-col gap-3 rounded-md p-4 sm:p-6 sm:flex-row'>
+        <div className='sm:grow'>
+          <input 
+            value={initialLink}
+            onChange={(e) => setInititalLink(e.target.value)}
+            type="text" 
+            name='link' 
+            placeholder='Shorten a link here' 
+            className={`rounded-md py-2 px-3 bg-white w-full outline-none ${inputError ? 'border-2 border-red-600 placeholder:text-red-300' : ''}`}
+          />
+          {inputError && <span className='text-red-600 text-sm italic -mt-3'>Please add a link</span>}
+        </div>
+        <button type='submit' className='rounded-md w-full sm:w-fit h-fit'>Shorten it!</button>
       </form>
         {
           shortenedLink === '' ? null : 
